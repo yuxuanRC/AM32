@@ -84,7 +84,6 @@ extern char dshot_telemetry;
 extern char armed;
 extern char out_put;
 extern uint8_t compute_dshot_flag;
-extern uint32_t commutation_interval;
 
 /* USER CODE END EV */
 
@@ -236,31 +235,24 @@ void ADC1_COMP_IRQHandler(void)
 {
     if (LL_EXTI_IsActiveFallingFlag_0_31(LL_EXTI_LINE_18)) {
         LL_EXTI_ClearFallingFlag_0_31(LL_EXTI_LINE_18);
-				if((INTERVAL_TIMER->CNT) > (commutation_interval >> 1)){
-       interruptRoutine();
-    }
+        interruptRoutine();
+
         return;
     }
 
     if (LL_EXTI_IsActiveRisingFlag_0_31(LL_EXTI_LINE_18)) {
         LL_EXTI_ClearRisingFlag_0_31(LL_EXTI_LINE_18);
-				if((INTERVAL_TIMER->CNT) > (commutation_interval >> 1)){
-       interruptRoutine();
-    }
+        interruptRoutine();
         return;
     }
     if (LL_EXTI_IsActiveFallingFlag_0_31(LL_EXTI_LINE_17)) {
         LL_EXTI_ClearFallingFlag_0_31(LL_EXTI_LINE_17);
-				if((INTERVAL_TIMER->CNT) > (commutation_interval >> 1)){
-       interruptRoutine();
-    }
+        interruptRoutine();
         return;
     }
     if (LL_EXTI_IsActiveRisingFlag_0_31(LL_EXTI_LINE_17)) {
         LL_EXTI_ClearRisingFlag_0_31(LL_EXTI_LINE_17);
-				if((INTERVAL_TIMER->CNT) > (commutation_interval >> 1)){
-       interruptRoutine();
-    }
+        interruptRoutine();
         return;
     }
 }

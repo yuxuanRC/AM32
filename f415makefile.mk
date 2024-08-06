@@ -1,7 +1,8 @@
 
-TARGETS_F415 := $(call get_targets,F415)
+TARGETS_F415 := \
+	AT32DEV_F415 TEKKO32_F415
 
-HAL_FOLDER_F415 := $(HAL_FOLDER)/f415
+HAL_FOLDER_F415 := $(HAL_FOLDER)/F415
 
 MCU_F415 := -mcpu=cortex-m4 -mthumb
 LDSCRIPT_F415 := $(HAL_FOLDER_F415)/AT32F415x8_FLASH.ld
@@ -20,6 +21,6 @@ CFLAGS_F415 := \
 CFLAGS_F415 += \
 	 -DAT32F415K8U7_4 \
 	 -DUSE_STDPERIPH_DRIVER
-
+	
 
 SRC_F415 := $(foreach dir,$(SRC_DIR_F415),$(wildcard $(dir)/*.[cs]))

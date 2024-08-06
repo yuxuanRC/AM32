@@ -1,9 +1,10 @@
 
-TARGETS_E230 := $(call get_targets,E230)
+TARGETS_E230 := GD32DEV_A_E230\
+	
 
 HAL_FOLDER_E230 := $(HAL_FOLDER)/e230
 
-MCU_E230 := -mfloat-abi=soft -mthumb -march=armv8-m.main
+MCU_E230 := -mcpu=cortex-m23 -mthumb -fsigned-char
 LDSCRIPT_E230 := $(HAL_FOLDER_E230)/GD32E230K8_FLASH.ld
 
 SRC_DIR_E230 := \
